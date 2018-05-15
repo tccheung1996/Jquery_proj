@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Happy Travel Ltd</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/responsive-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/responsive-slider.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <style>
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+
+
+        }
+
+        .button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+        }
+
+        .cancelItem {
+            color: #000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 99;
+        }
+
+        .cancelItem:hover,
+        .cancelItem:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #floater {
+            position: absolute;
+            top: 100px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            -webkit-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+            z-index: 1;
+            border-radius: 3px 0 0 3px;
+            padding: 10px;
+
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            background-color: #D3D3D3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="includeheader"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contents">
+                    <input type="text" id="filter" class="form-control" placeholder="Search By Enter Keywords">
+                    <br>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input id="all" name=insurance onclick="all();" type="radio" checked> All Insurance &nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td><input name=insurance onclick="st();" type="radio"> Single Travel &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                <td><input name=insurance onclick="at();" type="radio"> Annual Travel &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><input id="8000" type="checkbox" class="ckPrice"> >$8000 &nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td><input id="4000" type="checkbox" class="ckPrice"> $4000-$7999 &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                <td><input id="3999" type="checkbox" class="ckPrice">
+                                    <$3999 &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="recent">
+                <button class="btn-primarys"><h3>Travel Insurance</h3></button>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div id="floater"><img src="img/noun_1017865_cc.png" width="50px" height="50px" onclick="openNav()"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="content">
+
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>FWD</h4>
+                            <center>
+                                <img src="img/insurance/annual/2.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Tourism upgrade version - gold plan
+                            </p>
+                            <p>
+                                HKD $1330
+                            </p>
+                            <p hidden="hidden">AnnualTravel </p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="javascript:void(0)" id="1" alt="" onclick="showPopUp2(this.id);">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>MSIG</h4>
+                            <center>
+                                <img src="img/insurance/single/1.png" alt="" class="img-responsive "></center>
+                            <p>
+                                i-Travel (single trip) B plan
+                            </p>
+                            <p>
+                                HKD $4000
+                            </p>
+                            <p hidden="hidden"> SingleTravel</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>CHINA TAIPING</h4>
+                            <center>
+                                <img src="img/insurance/single/4.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Integrated Tourism Insurance - Superior Program
+                            </p>
+                            <p>
+                                HKD $10000+
+                            </p>
+                            <p hidden="hidden">SingleTravel </p>
+                            <p hidden="hidden" class="price">8000</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>AXA</h4>
+                            <center>
+                                <img id="addCartDemo" src="img/insurance/annual/4.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Excellence "excellent travel travel insurance - elegant plan (full year plan)
+                            </p>
+                            <p>
+                                HKD $1350
+                            </p>
+                            <p hidden="hidden">AnnualTravel </p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="javascript:void(0)" id="2" onclick="showPopUp2(this.id);" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4> AXA</h4>
+                            <center>
+                                <img src="img/insurance/single/5.png" alt="" class="img-responsive "></center>
+                            <p>
+                                "Excellence" excellent amusement travel insurance - elegant plan
+                            </p>
+                            <p>
+                                HKD $6000+
+                            </p>
+                            <p hidden="hidden">SingleTravel </p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>LIBERTY</h4>
+                            <center>
+                                <img src="img/insurance/single/6.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Personal Travel Insurance - Asia
+                            </p>
+                            <p>
+                                HKD $5000
+                            </p>
+                            <p hidden="hidden">SingleTravel </p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>CHUBB</h4>
+                            <center>
+                                <img src="img/insurance/single/7.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Anda Travel Insurance - Plan 3
+                            </p>
+                            <p>
+                                HKD $3000+
+                            </p>
+                            <p hidden="hidden">SingleTravel </p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>FWD</h4>
+                            <center>
+                                <img src="img/insurance/single/2.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Travel Insurance A Plan
+                            </p>
+                            <p>
+                                HKD $7000+
+                            </p>
+                            <p hidden="hidden"> SingleTravel</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>MSIG</h4>
+                            <center>
+                                <img src="img/insurance/annual/1.png" alt="" class="img-responsive "></center>
+                            <p>
+                                i-Travel (annual travel) B plan
+                            </p>
+                            <p>
+                                HKD $1100
+                            </p>
+                            <p hidden="hidden">AnnualTravel </p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>FWD</h4>
+                            <center>
+                                <img src="img/insurance/annual/2.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Tourism Insurance Plan B (Annual Plan)
+                            </p>
+                            <p>
+                                HKD $1250
+                            </p>
+                            <p hidden="hidden">AnnualTravel</p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>STARR</h4>
+                            <center>
+                                <img src="img/insurance/annual/3.png" alt="" class="img-responsive "></center>
+                            <p>
+                                "Zhuo Yue Tour" travel insurance - distinguished (full year plan)
+                            </p>
+                            <p>
+                                HKD $1440
+                            </p>
+                            <p hidden="hidden">AnnualTravel </p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>STARR</h4>
+                            <center>
+                                <img src="img/insurance/annual/3.png" alt="" class="img-responsive "></center>
+                            <p>
+                                "Zhuo Yue Tour" travel insurance - extraordinary (full year plan)
+                            </p>
+                            <p>
+                                HKD $1300
+                            </p>
+                            <p hidden="hidden">AnnualTravel </p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>MSIG</h4>
+                            <center>
+                                <img src="img/insurance/annual/1.png" alt="" class="img-responsive "></center>
+                            <p>
+                                i-Travel (annual travel) A plan
+                            </p>
+                            <p>
+                                HKD $1300
+                            </p>
+                            <p hidden="hidden">AnnualTravel </p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>FALCON</h4>
+                            <center>
+                                <img src="img/insurance/single/3.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Tourism upgrade version - Silver plan
+                            </p>
+                            <p>
+                                HKD $4499+
+                            </p>
+                            <p hidden="hidden">SingleTravel </p>
+                            <p hidden="hidden" class="price">4000</p>
+
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>FWD</h4>
+                            <center>
+                                <img src="img/insurance/single/2.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Travel Insurance B Plan
+                            </p>
+                            <p>
+                                HKD $5000+
+                            </p>
+                            <p hidden="hidden">SingleTravel</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>CHUBB</h4>
+                            <center>
+                                <img src="img/insurance/annual/5.png" alt="" class="img-responsive "></center>
+                            <p>
+                                Anda Year Travel Insurance - Plan 3
+                            </p>
+                            <p>
+                                HKD $1380
+                            </p>
+                            <p hidden="hidden">AnnualTravel</p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">Detail</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="includefooter"></div>
+    <div class="container">
+        <div class="row">
+            <hr>
+        </div>
+    </div>
+    <center>
+        <div id="myModal_1" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+
+                <center>
+                    <font color="black">
+                        <h2>FWD</h2><br>
+                        <table>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    Tourism upgrade version - gold plan
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <img src="img/insurance/annual/2.png" width="200px" height="100px" class="img-responsive ">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%"></td>
+                                <td align="left">
+                                    -Hospital or quarantine cash allowance $10,000<br> -Global emergency support services <br> -Car rental $5,000<br> -Golf "one hole" $3,000<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <h4>$1330</h4>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                        <button  class="button">ADD TO CART</button>
+                </center>
+                </font>
+            </div>
+        </div>
+        <div id="myModal_2" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+
+                <center>
+                    <font color="black">
+                        <h2>AXA</h2><br>
+                        <table>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    Excellence "excellent travel travel insurance - elegant plan (full year plan)
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <img src="img/insurance/annual/4.png" width="111px" height="111px" class="img-responsive ">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="25%"></td>
+                                <td align="left">
+                                    -The maximum attendance fee of up to HK $ 50,000 within 90 days after returning from Hong Kong will include a maximum of HK $ 150 per day for Chinese medicine practitioners and a total of HK $ 1,500 <br>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <h4>$1330</h4>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                        <button id="addToCart" class="button">ADD TO CART</button>
+                </center>
+                </font>
+            </div>
+        </div>
+    </center>
+
+    <div id="axa" hidden="hidden">
+        <center>
+            <font color="black">
+                <table width="230px">
+                    <tr>
+                        <td colspan="2" align="center">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="40%" align="center">
+                            <img src="img/insurance/annual/4.png"  class="img-responsive ">
+                        </td>
+                        <td>
+                            <b>AXA X 1</b><span class="cancelItem">&times;</span><br> $1350
+
+                        </td>
+                    </tr>
+                </table>
+            </font>
+        </center>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div id="maple">
+            <center>
+                <font color="black">
+                    <table width="230px">
+                        <tr>
+                            <td colspan="2" align="center">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="40%" align="center">
+                                <img src="img/package/kr/3.jpg" alt="" class="img-responsive ">
+                            </td>
+                            <td>
+                                <b>maple tour X 1</b><span class="cancelItem">&times;</span><br> $2200
+
+                            </td>
+                        </tr>
+                    </table>
+                </font>
+            </center>
+        </div>
+        <br>
+        <div id="spa">
+            <center>
+                <font color="black">
+                    <table width="230px">
+                        <tr>
+                            <td colspan="2" align="center">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="40%" align="center">
+                                <img src="img/package/jp/3.jpg" alt="" class="img-responsive ">
+                            </td>
+                            <td>
+                                <b>Spa enjoyment X 1</b><span class="cancelItem">&times;</span><br> $4499
+
+                            </td>
+                        </tr>
+                    </table>
+                </font>
+            </center>
+        </div>
+    <br>
+    </div>
+    
+    <script>
+        wow = new WOW({
+
+            })
+            .init();
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#includeheader").load("header2.html");
+            $("#includefooter").load("footer.html");
+
+
+            $("#filter").keyup(function() {
+                var filter = $("#filter").val();
+                $(".col-md-4").hide();
+
+                $(".col-md-4:contains(" + filter + ")").show();
+            });
+            $("#all").click(function() {
+                $(".col-md-4").hide();
+                $(".col-md-4").show();
+
+
+
+
+            });
+        });
+
+        function all() {
+            $(".col-md-4").hide();
+            $(".col-md-4").show();
+
+        }
+
+        function st() {
+            $(".col-md-4:contains('AnnualTravel')").hide();
+            $(".col-md-4:contains('SingleTravel')").show();
+
+        }
+
+        function at() {
+            $(".col-md-4:contains('SingleTravel')").hide();
+            $(".col-md-4:contains('AnnualTravel')").show();
+
+        }
+
+        function showPopUp2(nid) {
+            var modal = document.getElementById('myModal_' + nid);
+            // Get the button that opens the modal
+
+            // When the user clicks the button, open the modal 
+
+            modal.style.display = "block";
+            // When the user clicks on <span> (x), close the modal
+
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+        }
+
+
+        $("#addToCart").click(function() {
+
+            var r = confirm("Do you want to add to shopping cart?");
+            if (r == true) {
+                document.getElementById("myModal_2").style.display = "none";
+                var cart = $('#floater');
+                var imgtodrag = $("#addCartDemo").eq(0);
+                if (imgtodrag) {
+                    var imgclone = imgtodrag.clone()
+                        .offset({
+                            top: imgtodrag.offset().top,
+                            left: imgtodrag.offset().left
+                        })
+                        .css({
+                            'opacity': '0.5',
+                            'position': 'absolute',
+                            'height': '150px',
+                            'width': '150px',
+                            'z-index': '100'
+                        })
+                        .appendTo($('body'))
+                        .animate({
+                            'top': cart.offset().top + 10,
+                            'left': cart.offset().left + 10,
+                            'width': 75,
+                            'height': 75
+                        }, 1000, 'easeInOutExpo');
+
+                    setTimeout(function() {
+                        cart.effect("shake", {
+                            times: 2
+                        }, 200);
+                    }, 1500);
+
+                    imgclone.animate({
+                        'width': 0,
+                        'height': 0
+                    }, function() {
+                        $(this).detach()
+                    });
+                    var text = $("#axa").html();
+                    $("#axa").removeAttr("hidden");
+                    $("#axa").hide();
+                    $(text).appendTo($("#mySidenav"));
+                }
+            }
+
+
+        });
+
+        $(window).scroll(function() {
+            var winScrollTop = $(window).scrollTop();
+            var winHeight = $(window).height();
+            var floaterHeight = $('#floater').outerHeight(true);
+            var fromBottom = 500;
+            var top = winScrollTop + winHeight - floaterHeight - fromBottom;
+            $('#floater').css({
+                'top': top + 'px'
+            });
+        });
+
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginRight = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+
+        }
+        $(".ckPrice").click(function() {
+                    $(".col-md-4").hide();
+
+
+                    if ($("#8000").prop("checked") && $("#4000").prop("checked") && $("#8000").prop("checked")) {
+                        $(".col-md-4").show();
+                    } else if ($("#8000").prop("checked") && $("#4000").prop("checked")) {
+                        $(".col-md-4:contains('8000')").show();
+                        $(".col-md-4:contains('4000')").show();
+                    } else if ($("#8000").prop("checked") && $("#3999").prop("checked")) {
+                        $(".col-md-4:contains('8000')").show();
+                        $(".col-md-4:contains('3999')").show();
+                    } else if ($("#4000").prop("checked") && $("#3999").prop("checked")) {
+                        $(".col-md-4:contains('4000')").show();
+                        $(".col-md-4:contains('3999')").show();
+                    } else if ($("#8000").prop("checked")) {
+                        $(".col-md-4:contains('8000')").show();
+                    } else if ($("#3999").prop("checked")) {
+                        $(".col-md-4:contains('3999')").show();
+                    } else if ($("#4000").prop("checked")) {
+                        $(".col-md-4:contains('4000')").show();
+                    } else if (!$("#8000").prop("checked") && !$("#4000").prop("checked") && !$("#8000").prop("checked")) {
+                        $(".col-md-4").show();
+                    }
+
+
+                });
+    </script>
+</body>
+
+</html>

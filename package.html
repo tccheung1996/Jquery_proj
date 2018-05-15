@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Happy Travel Ltd</title>
+
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/responsive-slider.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/responsive-slider.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <style>
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+
+        #modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+
+
+
+        }
+
+        /* The Close Button */
+
+        .cancelItem {
+            color: #000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 99;
+        }
+
+        .cancelItem:hover,
+        .cancelItem:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #floater {
+            position: absolute;
+            top: 100px;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            -webkit-transition: all 2s ease-in-out;
+            transition: all 2s ease-in-out;
+            z-index: 1;
+            border-radius: 3px 0 0 3px;
+            padding: 10px;
+
+            color: white;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            background-color: #D3D3D3;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+
+        .button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="includeheader"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contents">
+                    <input type="text" id="filter" class="form-control" placeholder="Search By Enter Keywords">
+                    <br>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input id="all" name=package onclick="all(this);" type="radio" checked> All Package &nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td><input name=package onclick="jp(this);" type="radio"> Japan &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                <td><input name=package onclick="kr(this);" type="radio"> Korea &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td><input id="8000" class="ckPrice" type="checkbox"> >$8000 &nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                <td><input id="4000" class="ckPrice" type="checkbox"> $4000-$7999 &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                                <td><input id="3999" class="ckPrice" type="checkbox">
+                                    <$3999 &nbsp;&nbsp; &nbsp;&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="recent">
+                <button class="btn-primarys"><h3>Package Tour</h3></button>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div id="floater"><img src="img/noun_1017865_cc.png" width="50px" height="50px" onclick="openNav()"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="content">
+
+
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Reserved seats</h4>
+                            <center>
+                                <img src="img/package/jp/1.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Tokyo backpack travel package 5days(Including Free full pocket wifi rental service)
+                            </p>
+                            <p>
+                                HKD $4000
+                            </p>
+                            <p hidden="hidden">japan Japan</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="javascript:void(0)" id="2" onclick="showPopUp2(this.id)" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>maple tour</h4>
+                            <center>
+                                <img id="addCartDemo1" src="img/package/kr/3.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                seoul backpack travel package 3-31 days(Including Big mountain park + Picking dew apple one day tour)
+                            </p>
+                            <p>
+                                HKD $2200+
+                            </p>
+                            <p hidden="hidden">korea Korea </p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="javascript:void(0)" alt="" id="1" onclick="showPopUp2(this.id)">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Tokyo Disneyland</h4>
+                            <center>
+                                <img src="img/package/jp/2.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Tokyo backpack travel package 3-31 days(Including Free full pocket wifi rental service)
+                            </p>
+                            <p>
+                                HKD $5000+
+                            </p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <p hidden="hidden">japan Japan 5000</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Skiing</h4>
+                            <center>
+                                <img src="img/package/kr/6.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Seoul + Gyeonggi-do / Gangwon-do backpack travel package 4-31 days
+                            </p>
+                            <p>
+                                HKD $6700+
+                            </p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <p hidden="hidden">korea Korea 6700</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Spa enjoyment</h4>
+                            <center>
+                                <img id="addCartDemo2" src="img/package/jp/3.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Hakone backpack travel package 3-31 days
+                            </p>
+                            <p>
+                                HKD $4499+
+                            </p>
+                            <p hidden="hidden">japan Japan 4499</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="javascript:void(0)" alt="" id="3" onclick="showPopUp2(this.id)">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4> Oedo Hot Spring Story</h4>
+                            <center>
+                                <img src="img/package/jp/5.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Tokyo backpack travel package 3-31 days(Including Free full pocket wifi rental service)
+                            </p>
+                            <p>
+                                HKD $6000+
+                            </p>
+                            <p hidden="hidden">japan Japan 6000+</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="javascript:void(0)" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Golden Tulip M Seoul Hotel</h4>
+                            <center>
+                                <img src="img/package/kr/7.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                seoul backpack travel package 3-31 days
+                            </p>
+                            <p>
+                                HKD $8500+
+                            </p>
+                            <p hidden="hidden">korea Korea 8500</p>
+                            <p hidden="hidden" class="price">8000</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Theme Park - Mitaka Mori Art Museum</h4>
+                            <center>
+                                <img src="img/package/jp/6.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Tokyo backpack travel package 3-31 days(Including Free full pocket wifi rental service and Shinjuku to art museum one way bus service)
+                            </p>
+                            <p>
+                                HKD $5000
+                            </p>
+                            <p hidden="hidden">japan Japan</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>New hotel</h4>
+                            <center>
+                                <img src="img/package/jp/7.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Tokyo backpack travel package 3-31 days(Including Free full pocket wifi rental service)
+                            </p>
+                            <p>
+                                HKD $3000+
+                            </p>
+                            <p hidden="hidden">japan Japan</p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Christmas</h4>
+                            <center>
+                                <img src="img/package/jp/8.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Tokyo backpack travel package 3-8 days(Including Free full pocket wifi rental service)
+
+                            </p>
+                            <p>
+                                HKD $7000+
+                            </p>
+                            <p hidden="hidden">japan Japan 7000</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>DIY Free combination of travel</h4>
+                            <center>
+                                <img src="img/package/kr/1.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                seoul backpack travel package 3-31 days
+                            </p>
+                            <p>
+                                HKD $3000+
+                            </p>
+                            <p hidden="hidden">korea Korea 3000</p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Reserved seats</h4>
+                            <center>
+                                <img src="img/package/kr/2.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Air India seoul backpack travel package 5days
+                            </p>
+                            <p>
+                                HKD $3500+
+                            </p>
+                            <p hidden="hidden">korea Korea 3500</p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Twin Cities Tour</h4>
+                            <center>
+                                <img src="img/package/kr/4.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Seoul + Busan backpack travel package 5days
+                            </p>
+                            <p>
+                                HKD $3500+
+                            </p>
+                            <p hidden="hidden">korea Korea 3500</p>
+                            <p hidden="hidden" class="price">3999</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>ski. River Village Elysian Ski Resort</h4>
+                            <center>
+                                <img src="img/package/kr/5.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                seoul backpack travel package 5days
+                            </p>
+                            <p>
+                                HKD $9000+
+                            </p>
+                            <p hidden="hidden">korea Korea 9000</p>
+                            <p hidden="hidden" class="price">8000</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Ski Karuizawa Prince Hotel</h4>
+                            <center>
+                                <img src="img/package/jp/4.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                Tokyo backpack travel package 3-31 days(Including Free full pocket wifi rental service)
+                            </p>
+                            <p>
+                                HKD $10000+
+                            </p>
+                            <p hidden="hidden">japan Japan 10000+</p>
+                            <p hidden="hidden" class="price">8000</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="align-center">
+                            <h4>Christmas-Hotel instant confirmation</h4>
+                            <center>
+                                <img src="img/package/kr/8.jpg" alt="" class="img-responsive "></center>
+                            <p>
+                                backpack travel package 3-31 days
+                            </p>
+                            <p>
+                                HKD $4500+
+                            </p>
+                            <p hidden="hidden">korea Korea 4500</p>
+                            <p hidden="hidden" class="price">4000</p>
+                            <div class="ficon">
+                                <a href="" alt="">DETAIL</a> <i class="fa fa-long-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="includefooter"></div>
+    <div class="container">
+        <div class="row">
+            <hr>
+        </div>
+    </div>
+    <center>
+        <div id="myModal_1" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="width:55%;">
+                <span class="close">&times;</span>
+                <center>
+                    <font color="black">
+                        <h2>maple tour</h2><br>
+                        <table>
+                            <tr>
+                                <td width="40%" align="center">
+                                    <img src="img/package/kr/3.jpg" alt="" class="img-responsive ">
+                                </td>
+                                <td>
+                                    seoul backpack travel package 3-31 days(Including Big mountain park + Picking dew apple one day tour)
+                                    <p>-Hong Kong to Tokyo [Narita Airport] or [Haneda Airport] Round trip ticket (economy class)</p>
+                                    <p>-2 nights hotel accommodation (breakfast arrangement subject to individual hotel or room type)</p>
+                                    <p>-Dagushan Park + picking dew apple day group (å Monday, two and four starting)</p>
+                                </td>
+                            </tr>
+                            <tr align="center">
+                                <td colspan="" align="right">
+                                    Departing On:<br>
+
+                                </td>
+                                <td align="left"><input type="date" id="datepicker"></td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    How much days?<br>
+                                </td>
+                                <td>
+                                    <input type="number" id="days" value="3">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <h4>$2200</h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div id="message"></div>
+                        <button id="addToCart" class="button">ADD TO CART</button>
+                </center>
+                </font>
+            </div>
+        </div>
+        <div id="myModal_2" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="width:55%;">
+                <span class="close">&times;</span>
+                <center>
+                    <font color="black">
+                        <h2>Reserved seats</h2><br>
+                        <table>
+                            <tr>
+                                <td width="40%" align="center">
+                                     <img src="img/package/jp/1.jpg" alt="" class="img-responsive ">
+                                </td>
+                                <td>
+                                    Tokyo backpack travel package 5days(Including Free full pocket wifi rental service)
+                                    <p>-Hong Kong to Tokyo Narita Airport Round trip ticket (economy class)</p>
+                                    <p>-4 nights hotel consecutive accommodation (breakfast arrangement depends on individual hotel or room type)</p>
+                                    <p>-Full line Japan free exercise package, package free pocket wifi rental service, full appointment unlimited data (one per order)</p>
+                                </td>
+                            </tr>
+                            <tr align="center">
+                                <td colspan="" align="right">
+                                    Departing On:<br>
+
+                                </td>
+                                <td align="left"><input type="date" id="datepicker2"></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <h4>$4000</h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div id="message"></div>
+                        <button id="addToCart" class="button">ADD TO CART</button>
+                </center>
+                </font>
+            </div>
+        </div>
+        <div id="myModal_3" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" style="width:55%;">
+                <span class="close">&times;</span>
+                <center>
+                    <font color="black">
+                        <h2>Spa enjoyment</h2><br>
+                        <table>
+                            <tr>
+                                <td width="40%" align="center">
+                                    <img src="img/package/jp/3.jpg" alt="" class="img-responsive ">
+                                </td>
+                                <td>
+                                    Hakone backpack travel package 3-31 days
+                                    <p>-Hot spring to Tokyo not to miss the project, depends on Japan's leading Shinkansen and tram system, in addition to Tokyo's Otani hot springs, Tokyo's surrounding Hakone are well-known hot springs town.</p>
+                                    <p>-Full line Japan free exercise package, package free pocket wifi rental service, full appointment unlimited data (one per order)</p>
+                                </td>
+                            </tr>
+                            <tr align="center">
+                                <td colspan="" align="right">
+                                    Departing On:<br>
+
+                                </td>
+                                <td align="left"><input type="date" id="datepicker3"></td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    How much days?<br>
+                                </td>
+                                <td>
+                                    <input type="number" id="days" value="3">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <h4>$4499</h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div id="message"></div>
+                        <button id="addToCart2" class="button">ADD TO CART</button>
+                </center>
+                </font>
+            </div>
+        </div>
+        <div id="maple" hidden="hidden">
+            <center>
+                <font color="black">
+                    <table width="230px">
+                        <tr>
+                            <td colspan="2" align="center">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="40%" align="center">
+                                <img src="img/package/kr/3.jpg" alt="" class="img-responsive ">
+                            </td>
+                            <td>
+                                <b>maple tour X 1</b><span class="cancelItem">&times;</span><br> $2200
+
+                            </td>
+                        </tr>
+                    </table>
+                </font>
+            </center>
+        </div>
+        
+        <div id="spa" hidden="hidden">
+            <center>
+                <font color="black">
+                    <table width="230px">
+                        <tr>
+                            <td colspan="2" align="center">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="40%" align="center">
+                                <img src="img/package/jp/3.jpg" alt="" class="img-responsive ">
+                            </td>
+                            <td>
+                                <b>Spa enjoyment X 1</b><span class="cancelItem">&times;</span><br> $4499
+
+                            </td>
+                        </tr>
+                    </table>
+                </font>
+            </center>
+        </div>
+        
+        
+
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+
+        </div>
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+        <script>
+            wow = new WOW({
+
+                })
+                .init();
+
+        </script>
+
+
+        <script>
+            $(document).ready(function() {
+
+                $("#includeheader").load("header2.html");
+                $("#includefooter").load("footer.html");
+
+
+                $("#filter").keyup(function() {
+                    var filter = $("#filter").val();
+                    $(".col-md-4").hide();
+
+                    $(".col-md-4:contains(" + filter + ")").show();
+                });
+                $(".ckPrice").click(function() {
+                    $(".col-md-4").hide();
+
+
+                    if ($("#8000").prop("checked") && $("#4000").prop("checked") && $("#8000").prop("checked")) {
+                        $(".col-md-4").show();
+                    } else if ($("#8000").prop("checked") && $("#4000").prop("checked")) {
+                        $(".col-md-4:contains('8000')").show();
+                        $(".col-md-4:contains('4000')").show();
+                    } else if ($("#8000").prop("checked") && $("#3999").prop("checked")) {
+                        $(".col-md-4:contains('8000')").show();
+                        $(".col-md-4:contains('3999')").show();
+                    } else if ($("#4000").prop("checked") && $("#3999").prop("checked")) {
+                        $(".col-md-4:contains('4000')").show();
+                        $(".col-md-4:contains('3999')").show();
+                    } else if ($("#8000").prop("checked")) {
+                        $(".col-md-4:contains('8000')").show();
+                    } else if ($("#3999").prop("checked")) {
+                        $(".col-md-4:contains('3999')").show();
+                    } else if ($("#4000").prop("checked")) {
+                        $(".col-md-4:contains('4000')").show();
+                    } else if (!$("#8000").prop("checked") && !$("#4000").prop("checked") && !$("#8000").prop("checked")) {
+                        $(".col-md-4").show();
+                    }
+
+
+                });
+                $("#all").click(function() {
+                    $(".col-md-4").hide();
+                    $(".col-md-4").show();
+                });
+                $('#mySidenav').on('click', '.cancelItem', function() {
+                    var c = confirm("Do you want to cancel this item from shopping cart?");
+                    if (c == true) {
+                        $(this).parent().parent().parent().hide(500);
+                    }
+                });
+              
+
+                $("#addToCart").click(function() {
+
+                    if ($("#days").val() == "" || $("#days").val() == "0") {
+                        $("#message").html("Invaild days").css('color', 'red');
+                        $("#message").effect("shake");
+                    } else {
+
+                        var r = confirm("Do you want to add to shopping cart?");
+                        if (r == true) {
+                            document.getElementById("myModal_1").style.display = "none";
+                            var cart = $('#floater');
+                            var imgtodrag = $("#addCartDemo1").eq(0);
+                            if (imgtodrag) {
+                                var imgclone = imgtodrag.clone()
+                                    .offset({
+                                        top: imgtodrag.offset().top,
+                                        left: imgtodrag.offset().left
+                                    })
+                                    .css({
+                                        'opacity': '0.5',
+                                        'position': 'absolute',
+                                        'height': '150px',
+                                        'width': '150px',
+                                        'z-index': '100'
+                                    })
+                                    .appendTo($('body'))
+                                    .animate({
+                                        'top': cart.offset().top + 10,
+                                        'left': cart.offset().left + 10,
+                                        'width': 75,
+                                        'height': 75
+                                    }, 1000, 'easeInOutExpo');
+
+                                setTimeout(function() {
+                                    cart.effect("shake", {
+                                        times: 2
+                                    }, 200);
+                                }, 1500);
+
+                                imgclone.animate({
+                                    'width': 0,
+                                    'height': 0
+                                }, function() {
+                                    $(this).detach()
+                                });
+                                var text = $("#maple").html();
+                                $("#maple").removeAttr("hidden");
+                                $("#maple").hide();
+                                $("#mySidenav").append(text);
+                            }
+                        }
+                    }
+
+                });
+                $("#addToCart2").click(function() {
+
+                    if ($("#days").val() == "" || $("#days").val() == "0") {
+                        $("#message").html("Invaild days").css('color', 'red');
+                        $("#message").effect("shake");
+                    } else {
+
+                        var r = confirm("Do you want to add to shopping cart?");
+                        if (r == true) {
+                            document.getElementById("myModal_3").style.display = "none";
+                            var cart = $('#floater');
+                            var imgtodrag = $("#addCartDemo2").eq(0);
+                            if (imgtodrag) {
+                                var imgclone = imgtodrag.clone()
+                                    .offset({
+                                        top: imgtodrag.offset().top,
+                                        left: imgtodrag.offset().left
+                                    })
+                                    .css({
+                                        'opacity': '0.5',
+                                        'position': 'absolute',
+                                        'height': '150px',
+                                        'width': '150px',
+                                        'z-index': '100'
+                                    })
+                                    .appendTo($('body'))
+                                    .animate({
+                                        'top': cart.offset().top + 10,
+                                        'left': cart.offset().left + 10,
+                                        'width': 75,
+                                        'height': 75
+                                    }, 1000, 'easeInOutExpo');
+
+                                setTimeout(function() {
+                                    cart.effect("shake", {
+                                        times: 2
+                                    }, 200);
+                                }, 1500);
+
+                                imgclone.animate({
+                                    'width': 0,
+                                    'height': 0
+                                }, function() {
+                                    $(this).detach()
+                                });
+                                var text = $("#spa").html();
+                                $("#spa").removeAttr("hidden");
+                                $("#spa").hide();
+                                $("#mySidenav").append(text);
+                            }
+                        }
+                    }
+
+                });
+            });
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementById('datepicker').valueAsDate = new Date();
+            document.getElementById('datepicker').setAttribute('min', today);
+            
+            document.getElementById('datepicker2').valueAsDate = new Date();
+            document.getElementById('datepicker2').setAttribute('min', today);
+            
+            document.getElementById('datepicker3').valueAsDate = new Date();
+            document.getElementById('datepicker3').setAttribute('min', today);
+            
+            
+            $(window).scroll(function() {
+                var winScrollTop = $(window).scrollTop();
+                var winHeight = $(window).height();
+                var floaterHeight = $('#floater').outerHeight(true);
+                var fromBottom = 500;
+                var top = winScrollTop + winHeight - floaterHeight - fromBottom;
+                $('#floater').css({
+                    'top': top + 'px'
+                });
+            });
+
+
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginRight = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+
+            }
+
+            function jp(package) {
+                $(".col-md-4:contains('japan')").show();
+                $(".col-md-4:contains('korea')").hide();
+            }
+
+            function kr(package) {
+                $(".col-md-4:contains('korea')").show();
+                $(".col-md-4:contains('japan')").hide();
+            }
+
+            function showPopUp2(nid) {
+                var modal = document.getElementById('myModal_' + nid);
+                // Get the button that opens the modal
+
+                // When the user clicks the button, open the modal 
+
+                modal.style.display = "block";
+                // When the user clicks on <span> (x), close the modal
+
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+
+            }
+
+        </script>
+
+</body>
+
+</html>
